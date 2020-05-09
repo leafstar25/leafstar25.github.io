@@ -16,8 +16,15 @@
 <meta property="og:description" content="CSS —— 网页的美容师层叠样式表（Cascading Style Sheets）由HTML专注做结构呈现，样式交给CSS，即结构（HTML）与样式（CSS）分离">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/07/YefVbV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/08/YuWia6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/08/YuoUL4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/08/YuO9pR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/09/YMW4YV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/09/YM5RjU.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/09/YQqV0K.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/09/YlYQ8x.png">
 <meta property="article:published_time" content="2020-05-05T10:12:19.000Z">
-<meta property="article:modified_time" content="2020-05-07T15:34:31.904Z">
+<meta property="article:modified_time" content="2020-05-09T16:02:35.685Z">
 <meta property="article:author" content="Leaf Star">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -321,8 +328,386 @@ rel：定义当前文档与被链接文档之间的关系，在这里需要指�
 <h3 id="背景图片"><a href="#背景图片" class="headerlink" title="背景图片"></a>背景图片</h3><p>实际开发中常见于logo或者一些装饰性的小图片或者是超大的背景图片，优点是非常便于控制位置（精灵图也是一种运用场景）   </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    background-image: none|url(images&#x2F;logo.png);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="背景平铺"><a href="#背景平铺" class="headerlink" title="背景平铺"></a>背景平铺</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>默认情况下背景是平铺的，可以设置沿着x轴（repeat-x）或者y轴（repeat-y）平铺，或者不平铺（no-repeat）<br>页面元素既可以添加背景图片也可以添加背景颜色，只是背景图片会压住背景颜色  </p>
+<p>默认情况下背景是平铺的，可以设置沿着x轴（repeat-x）或者y轴（repeat-y）平铺，或者不平铺（no-repeat）<br>页面元素既可以添加背景图片也可以添加背景颜色，只是背景图片会压住背景颜色   </p>
+<h3 id="背景图片的位置（重要）"><a href="#背景图片的位置（重要）" class="headerlink" title="背景图片的位置（重要）"></a>背景图片的位置（重要）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-position: x y;</span><br></pre></td></tr></table></figure>
+<p>参数代表的意思是：x坐标和y坐标。可以使用方位名词或者精确单位<br>length：百分数 | 由浮点数字和单位标识符组成的长度值<br>position： top | center | bottom | left | center | right 方位名词   </p>
+<p><strong>1.参数是方位名词</strong><br><code>background-position: center top;</code><br>顺序无关，right center和center right都是同样的效果<br>第二个参数省略默认为居中显示  </p>
+<p><strong>2.参数是精确单位</strong><br><code>background-position: 50px 20px;</code><br>第一个参数一定是x轴坐标，第二个参数一定是y轴坐标<br>只指定一个数值则那个数值是x轴坐标，垂直自动居中   </p>
+<p><strong>3.混合单位</strong><br>第一个是精确单位，第二个是方位名词<br><code>background-position: center 20px;</code>   </p>
+<h3 id="背景图像固定（背景附着）"><a href="#背景图像固定（背景附着）" class="headerlink" title="背景图像固定（背景附着）"></a>背景图像固定（背景附着）</h3><p>background-attachment属性设置背景图像是否固定或者随着页面的其余部分滚动<br>可以制作视差滚动的效果   </p>
+<table>
+   <tr> 
+        <th>参数</th>  
+        <th>作用</th> 
+    </tr>
+   <tr> 
+        <td>scroll</td>  
+        <td>背景图像是随对象内容滚动</td> 
+    </tr>
+   <tr> 
+        <td>fixed</td>  
+        <td>背景图像固定</td> 
+    </tr>
+  </table>
 
+
+<h3 id="背景复合写法"><a href="#背景复合写法" class="headerlink" title="背景复合写法"></a>背景复合写法</h3><p>当使用简写属性时，没有特定的书写顺序，但一般习惯约定顺序为：<br>background:背景颜色 背景图片地址 背景平铺 背景图像滚动 背景图片位置<br><code>background: black|transparent url(images/bg/jpg) no-repeat fixed top ;</code>   </p>
+<h3 id="背景色半透明"><a href="#背景色半透明" class="headerlink" title="背景色半透明"></a>背景色半透明</h3><p><code>background: rgba(0,0,0,0.5)</code>  </p>
+<ul>
+<li>最后一个参数是alpha透明度，取值在0-1之间   </li>
+<li>习惯把0.3的0省略掉，写为backgroun:rgba(0,0,0,.3);   </li>
+</ul>
+<hr>
+<h2 id="CSS三大特性"><a href="#CSS三大特性" class="headerlink" title="CSS三大特性"></a>CSS三大特性</h2><h3 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h3><p>相同选择器设置相同的样式，此时一个样式就会覆盖（层叠）另一个冲突的样式。层叠性主要解决样式冲突的问题<br>层叠性原则：  </p>
+<ul>
+<li>样式冲突，遵循就近原则，哪个样式离结构近，就执行哪个样式   </li>
+<li>样式不冲突，不会层叠，只覆盖冲突样式  </li>
+</ul>
+<h3 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h3><p>CSS中的继承：子标签会继承父标签的某些样式，如文本颜色和字号<br><img src="https://s1.ax1x.com/2020/05/08/YuWia6.png" alt="YuWia6.png" border="0" /><br>子元素可以击沉父亲的样式（text,font-,line-这些元素开头的可以继承，以及color属性）   </p>
+<p><strong>行高的继承：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    body &#123;</span><br><span class="line">        color: pink;</span><br><span class="line">        font: 12px&#x2F;1.5 &#39;Microsoft YaHei&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    div &#123;</span><br><span class="line">        font-size: 14px;</span><br><span class="line">    &#125;</span><br><span class="line">    p &#123;</span><br><span class="line">        font-size:16px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;粉红的回忆&lt;&#x2F;div&gt;</span><br><span class="line">&lt;p&gt;粉红的回忆&lt;&#x2F;p&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;我没有指定文字大小&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
+<p>这里的1.5指的是文字大小的1.5倍行高   </p>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><ul>
+<li>选择器相同，执行层叠性  </li>
+<li>选择器不同，根据选择器权重执行  </li>
+</ul>
+<table>
+   <tr> 
+        <th>选择器</th>  
+        <th>选择器权重</th> 
+    </tr>
+   <tr> 
+        <td>继承 或者 *</td>  
+        <td>0,0,0,0</td> 
+    </tr>
+   <tr> 
+        <td>元素选择器</td>  
+        <td>0,0,0,1</td> 
+    </tr>
+    <tr> 
+        <td>类选择器  伪类选择器</td>  
+        <td>0,0,1,0</td> 
+    </tr>
+    <tr> 
+        <td>ID选择器</td>  
+        <td>0,1,0,0</td> 
+    </tr>
+    <tr> 
+        <td>行内样式 style=""</td>  
+        <td>1,0,0,0</td> 
+    </tr>
+    <tr> 
+        <td>!important 重要的</td>  
+        <td>∞ 无穷大</td> 
+    </tr>
+  </table>
+
+<p>注意点：  </p>
+<ol>
+<li>权重是有4组数字组成，但不会有进位  </li>
+<li>可以理解为类选择器永远大于元素选择器，id选择器永远大于类选择器，以此类推  </li>
+<li>等级判断从左向右，如果某一位数值相同，则判断下一位数值  </li>
+<li>简单记忆法：通配符和继承权重为0，标签选择器为1，类（伪类）选择器为10，id选择器为100，行内样式表为1000，!important无穷大  </li>
+<li><strong>继承的权重为0！</strong>，如果该元素没有直接选中，不管父元素权重多高，子元素得到的权重都是0  </li>
+<li>a链接浏览器默认指定了一个样式  </li>
+</ol>
+<p><strong>权重叠加</strong><br>复合选择器会有权重叠加的问题  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    &#x2F;* ul li 的权重为 0,0,0,1 + 0,0,0,1 &#x3D; 0,0,0,2 *&#x2F;</span><br><span class="line">    ul li &#123;</span><br><span class="line">        color: red;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;* li 的权重为 0，0，0，1 *&#x2F;</span><br><span class="line">    li &#123;</span><br><span class="line">        color: green;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;* .nav li 的权重为 0,0,1,0 + 0,0,0,1 &#x3D; 0,0,1,1 *&#x2F;</span><br><span class="line">    .nav li &#123;</span><br><span class="line">        color：pink；</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&lt;ul class&#x3D;&quot;nav&quot;&gt;</span><br><span class="line">    &lt;li&gt;大猪蹄子&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;大肘子&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;猪尾巴&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>权重虽然会叠加，但是绝对不会进位</strong><br><img src="https://s1.ax1x.com/2020/05/08/YuoUL4.png" alt="YuoUL4.png" border="0" />   </p>
+<hr>
+<h2 id="CSS盒子模型"><a href="#CSS盒子模型" class="headerlink" title="CSS盒子模型"></a>CSS盒子模型</h2><h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><p>网页布局过程：<br>1.准备相关网页元素，网页元素基本都是盒子Box<br>2.利用CSS设置好盒子样式，然后摆放到相应位置（核心）<br>3.往盒子里面装内容   </p>
+<h3 id="盒子模型（Box-Model）组成"><a href="#盒子模型（Box-Model）组成" class="headerlink" title="盒子模型（Box Model）组成"></a>盒子模型（Box Model）组成</h3><p>盒子模型：把HTML页面中的布局元素看作一个矩形的盒子，也就是一个盛装内容的容器<br>CSS盒子模型本质上是一个盒子，封装周围的HTML元素，它包括：边框、外边距、内边距和实际内容<br><img src="https://s1.ax1x.com/2020/05/08/YuO9pR.png" alt="YuO9pR.png" border="0" />   </p>
+<h4 id="边框（Border）"><a href="#边框（Border）" class="headerlink" title="边框（Border）"></a>边框（Border）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    div &#123;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        border-width: 5px;</span><br><span class="line">        border-style: dotted;</span><br><span class="line">        border-color: pink;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<table>
+   <tr> 
+        <th>属性</th>  
+        <th>作用</th> 
+    </tr>
+   <tr> 
+        <td>border-width</td>  
+        <td>定义边框粗细，单位是px</td> 
+    </tr>
+   <tr> 
+        <td>border-style</td>  
+        <td>边框样式</td> 
+    </tr>
+    <tr> 
+        <td>border-color</td>  
+        <td>边框颜色</td> 
+    </tr>
+  </table>
+
+<p>  border-style:solid（实线）、dashed（虚线）、dotted（点线）<br>  边框简写：<code>border: 5px solid pink;</code>无顺序<br>  个性化：<br>  border-top: 5px solid red;  只设定上边框，其余同理<br>  border-bottom: 10px dashed purple;   当单独定义了某一边后其他边不会显示<br>  可以这样（层叠性）：<br>  border: 1px solid blue;<br>  border-top: 1px solid red;</p>
+<h4 id="表格的细线边框"><a href="#表格的细线边框" class="headerlink" title="表格的细线边框"></a>表格的细线边框</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boder-collapse: collapse;</span><br></pre></td></tr></table></figure>
+<p>合并相邻边框，使边框显得更细，均匀</p>
+<p><strong>边框会影响盒子实际大小</strong><br>边框会额外增加盒子的实际的大小，因此有两种方案解决：<br>1.测量盒子大小的时候，不量边框<br>2.如果测量的时候包含了边框，则需要width/height减去边框宽度   </p>
+<h4 id="内边距（padding）"><a href="#内边距（padding）" class="headerlink" title="内边距（padding）"></a>内边距（padding）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    padding-top: 10px;</span><br><span class="line">    padding-right: 20px;</span><br><span class="line">    padding-bottom: 5px;</span><br><span class="line">    padding-left: 30px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>padding复合属性：   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pading: 5px;</span><br><span class="line">pading: 5px 10px;</span><br><span class="line">pading: 5px 10px 20px;</span><br><span class="line">pading: 5px 10px 20px 30px;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>1个值，表示上下左右都为5像素内边距   </li>
+<li>2个值，表示上下边距为5像素，左右边距为10像素    </li>
+<li>3个值，表示上边距5像素，左右边距10像素，下边距20像素   </li>
+<li>4个值，表示上边距5像素，右边距10像素，下边距20像素，左边距30像素  顺时针    </li>
+<li><em>↑↑↑↑↑↑↑↑四个都重要↑↑↑↑↑↑↑↑*</em>   </li>
+</ul>
+<p><strong>padding也会影响盒子实际大小</strong><br>边框会额外增加盒子的实际的大小，因此有两种方案解决：<br>1.测量盒子大小的时候，不量边框<br>2.如果测量的时候包含了边框，则需要width/height减去边框宽度   </p>
+<p><strong>特殊情况：如果盒子本身没有指定width/height属性，则此时padding不会撑开盒子大小</strong>    </p>
+<h4 id="外边距（margin）"><a href="#外边距（margin）" class="headerlink" title="外边距（margin）"></a>外边距（margin）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">margin-left: 20px;</span><br><span class="line">margin-right: 20px;</span><br><span class="line">margin-top: 20px;</span><br><span class="line">margin-bottom: 20px;</span><br></pre></td></tr></table></figure>
+<p>magin简写模式与padding一致   </p>
+<p><strong>外边距典型应用：</strong><br>外边距可以让块级盒子水平居中，但是必须满足两个条件：<br>①盒子必须指定宽度<br>②盒子左右外边距都设置为auto   </p>
+<p>写法：  </p>
+<ul>
+<li>margin-left: auto; margin-right: auto;   </li>
+<li>margin: auto;   </li>
+<li><strong>margin: 0 auto;</strong><br>注意：以上方法是让块级元素水平居中，行内元素或者行内块元素水平居中给其父元素添加：text-align:center即可   </li>
+</ul>
+<p><strong>1.相邻块元素垂直外边距的合并</strong><br>当上下相邻的两个块元素（兄弟关系）相遇时，如果上面的元素有下外边距，下面的元素有上外边距，则他们之间的垂直间距不是上下外边距之和，而是取两个值中的较大者<br>解决方案：尽量只给一个盒子添加margin值<br><img src="https://s1.ax1x.com/2020/05/09/YMW4YV.png" alt="垂直外边距的合并.png" border="0" />  </p>
+<p><strong>2.嵌套块元素垂直外边距的塌陷</strong><br>对两个嵌套关系（父子）的块元素，父元素有上外边距同时子元素也有上外边距，此时父元素会塌陷较大的外边距值<br>解决方案：  </p>
+<ul>
+<li>①给父元素定义上边框   </li>
+<li>②给父元素定义上内边距   </li>
+<li>③给父元素添加overflow:hidden;<br>其他方法：浮动、固定、绝对定位的盒子不会有塌陷问题   </li>
+</ul>
+<h4 id="清除内外边距"><a href="#清除内外边距" class="headerlink" title="清除内外边距"></a>清除内外边距</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* 这句话是CSS的第一行代码 *&#x2F;</span><br><span class="line">* &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：行内元素为了照顾兼容性，尽量只设置左右内外边距，不设置上下内外边距，但是转换为块级和行内块元素就可以了；   </p>
+<h3 id="PS基本操作"><a href="#PS基本操作" class="headerlink" title="PS基本操作"></a>PS基本操作</h3><ul>
+<li>文件→打开：打开图片   </li>
+<li>Ctrl + R：打开标尺   </li>
+<li>右击标尺：单位设置为像素   </li>
+<li>Ctrl + 加减号：放大、缩小   </li>
+<li>按住空格键：鼠标变小手，拖动ps视图  </li>
+<li>用选区拖动：测量大小  </li>
+<li>Ctrl + D：取消选区，或者在旁边空白处点击一下   <img src="https://s1.ax1x.com/2020/05/09/YM5RjU.png" alt="YM5RjU.png" border="0" />   
+
+</li>
+</ul>
+<h4 id="pink总结："><a href="#pink总结：" class="headerlink" title="pink总结："></a>pink总结：</h4><p>1.布局为啥不用盒子，我只想用div？<br>标签都是有语义的，合理的地方用合理的标签，比如产品标题就用 h，大量文字段落就用p<br>2.为啥用那么多类名？<br>类名就是给每个盒子起一个名字，可以更好地找到这个盒子，选取盒子更容易，后期维护也方便<br>3.到底用marging还是padding？<br>大部分情况两个可以混用，两者各有优缺点，但是根据实际情况，总是有更简单的方法实现<br>4.自己做没有思路<br>布局有很多种方式实现，可以先模仿，然后做自己的风格<br><strong>多用辅助工具</strong></p>
+<p>去除无序列表圆点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    li &#123;</span><br><span class="line">        list-style: none;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="圆角边框"><a href="#圆角边框" class="headerlink" title="圆角边框"></a>圆角边框</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 10px;</span><br></pre></td></tr></table></figure>
+<p>原理：radius（半径）圆角交叉<br><strong>当圆角矩形半径值等于高度的一半时（50%），可以画出一个圆形</strong><br>该属性是一个简写属性，可以跟四个值，分别是：左上角、右上角、右下角、左下角<br>或者写成两个值分别代表：左上-右下角，右上-左下角<br>也可以分开写：border-top-left-radius、border-top-right-radius、border-bottom-right-radius、border-bottom-left-radius   </p>
+<h4 id="盒子阴影"><a href="#盒子阴影" class="headerlink" title="盒子阴影"></a>盒子阴影</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: h-shadow v-shadow blur spread color inset;</span><br></pre></td></tr></table></figure>
+<table>
+   <tr> 
+        <th>值</th>  
+        <th>描述</th> 
+    </tr>
+   <tr> 
+        <td>h-shadow</td>  
+        <td>必需，水平阴影位置，可为负值</td> 
+    </tr>
+   <tr> 
+        <td>v-shadow</td>  
+        <td>必需，垂直阴影位置，可为负值</td> 
+    </tr>
+    <tr> 
+        <td>blur</td>  
+        <td>可选，模糊距离</td> 
+    </tr>
+    <tr> 
+        <td>spread</td>  
+        <td>可选，阴影的尺寸</td> 
+    </tr>
+    <tr> 
+        <td>color</td>  
+        <td>可选，阴影颜色</td> 
+    </tr>
+    <tr> 
+        <td>inset</td>  
+        <td>可选，将外部阴影改为内部阴影</td> 
+    </tr>
+  </table>
+
+<h4 id="文字阴影"><a href="#文字阴影" class="headerlink" title="文字阴影"></a>文字阴影</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text-shadow: h-shadow v-shadow blur color;</span><br></pre></td></tr></table></figure>
+
+<h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><h3 id="传统网页的三种布局方式："><a href="#传统网页的三种布局方式：" class="headerlink" title="传统网页的三种布局方式："></a>传统网页的三种布局方式：</h3><ul>
+<li>普通流（标准流）   </li>
+<li>浮动   </li>
+<li>定位   </li>
+</ul>
+<h3 id="标准流（普通流-文档流）"><a href="#标准流（普通流-文档流）" class="headerlink" title="标准流（普通流/文档流）"></a>标准流（普通流/文档流）</h3><p>标签按照规定好默认方式排列<br><img src="https://s1.ax1x.com/2020/05/09/YQqV0K.png" alt="YQqV0K.png" border="0" />   </p>
+<p><strong>实际开发中包含了三种布局方式</strong></p>
+<h3 id="浮动的作用"><a href="#浮动的作用" class="headerlink" title="浮动的作用"></a>浮动的作用</h3><p>改变元素标签默认的排列方式<br>典型应用：让多个块级元素一行内排列显示<br><strong>多个块级元素纵向排列找标准流，多个块级元素横向排列找浮动</strong>   </p>
+<h3 id="浮动-1"><a href="#浮动-1" class="headerlink" title="浮动"></a>浮动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    float:none|left|right; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>浮动的属性就两个值，左浮动或者右浮动   </p>
+<h3 id="浮动特性（重点）"><a href="#浮动特性（重点）" class="headerlink" title="浮动特性（重点）"></a>浮动特性（重点）</h3><p><strong>1.浮动元素会脱离标准流（脱标）</strong><br>①脱离标准普通流控制（浮）移动到指定位置（栋），俗称脱标<br>②浮动的盒子<strong>不再保留原先的位置</strong>   </p>
+<p><strong>2.如果多个盒子都设置了浮动，则它们会按照属性值一行内显示并且顶端对齐排列</strong><br>注意：浮动的元素是互相贴在一起的（无缝隙），如果父级宽度装不下这些浮动的盒子，多出的盒子会另起一行对齐   </p>
+<p><strong>3.浮动元素具有行内块特性</strong><br>如果行内元素有了浮动，则不需要转换为块级/行内块元素就可以给高度和宽度   </p>
+<ul>
+<li>如果块级元素没有设置宽度，默认宽度是和父级一样宽，但是添加浮动后，它的大小根据内容来决定  </li>
+<li>浮动的盒子中间是没有缝隙的，是紧挨着一起的   </li>
+<li>行内元素同理   </li>
+</ul>
+<h3 id="浮动元素经常和标准流父级搭配使用"><a href="#浮动元素经常和标准流父级搭配使用" class="headerlink" title="浮动元素经常和标准流父级搭配使用"></a>浮动元素经常和标准流父级搭配使用</h3><p>为了约束浮动元素位置，我们网页布局一般采取的策略是：<br>先用标准流的父元素排列上下位置，之后内部子元素采取浮动排列左右位置。符合网页布局第一准则   </p>
+<h3 id="常见网页布局"><a href="#常见网页布局" class="headerlink" title="常见网页布局"></a>常见网页布局</h3><p>参照常见网页进行布局练习   </p>
+<h3 id="浮动布局注意点"><a href="#浮动布局注意点" class="headerlink" title="浮动布局注意点"></a>浮动布局注意点</h3><p>1.浮动和标准流的父盒子搭配<br>先用标准流的父元素排列上下位置，之后内部子元素采取浮动排列左右位置<br>2.一个元素浮动了，理论上其余兄弟元素都要浮动<br>浮动元素不会影响之前的标准流元素，只会影响后面的标准流<br>浮动的盒子不会有外边距合并的问题</p>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><p>有的浮动的父级盒子不方便设置高度，但是父级盒子又不能不设置高度，所以需要用到清除浮动<br>本质：清除浮动元素造成的影响<br>如果父盒子本身有高度，则不需要清除浮动<br><strong>清除浮动之后，父级就会根据浮动的盒子自动检测高度。父级有了高度，就不会影响下面的标准流了。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    clear:left|right|both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实际工作中，几乎只用<code>clear:both;</code><br>清除浮动的策略是：闭合浮动   </p>
+<h3 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h3><p><strong>1.额外标签法（隔墙法）</strong><br>该方法是W3C推荐的做法<br>额外表前阀会在浮动元素末尾添加一个空的标签（父级盒子内部的最后），例如：   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style&#x3D;&quot;clear:both&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>或者用<code>&lt;br/&gt;</code>等<br>优点：通俗易懂，书写方便<br>缺点：添加许多无意义标签，结构化较差<br>注意：要求这个新的标签必须是块级元素<br>不常用   </p>
+<p><strong>2.父级添加&nbsp;overflow</strong><br>可以给父级添加overflow属性，将其值设置为hidden、auto或scroll<br>优点：代码简洁<br>缺点：无法显示溢出部分</p>
+<p><strong>3.:after&nbsp;伪元素法</strong>   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    display:block;</span><br><span class="line">    height:0;</span><br><span class="line">    clear:both;</span><br><span class="line">    visibility: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.clearfix &#123;    &#x2F;* IE6 IE7 专有*&#x2F;</span><br><span class="line">    *zoom: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>给需要清除浮动的父级元素添加这个类名中的属性<br>优点：没有增加标签，结构更简单<br>缺点：照顾低版本浏览器<br>代表网站：百度、淘宝网、网易等   </p>
+<p><strong>4.双伪元素清除浮动</strong>   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:before,</span><br><span class="line">.clearfix:after &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    display:table;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.clearfix:after &#123;</span><br><span class="line">    clear:both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.clearfix &#123;    &#x2F;* IE6 IE7 专有*&#x2F;</span><br><span class="line">    *zoom: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>优点：代码更简洁<br>缺点：照顾低版本浏览器<br>代表网站：小米、腾讯等   </p>
+<h2 id="PS切图"><a href="#PS切图" class="headerlink" title="PS切图"></a>PS切图</h2><h3 id="常见图片格式"><a href="#常见图片格式" class="headerlink" title="常见图片格式"></a>常见图片格式</h3><p>1.jpg/jpeg<br>2.gif<br>3.png<br>4.PSD:PS专用格式，可存放图层，通道，遮罩等多种设计稿（前端用的多！）   </p>
+<h3 id="切图方式——图层切图"><a href="#切图方式——图层切图" class="headerlink" title="切图方式——图层切图"></a>切图方式——图层切图</h3><p>最简单的切图方式：右击图层→快速导出为png<br>如果要一组图片，可以多选（shift+左键）选择合成图层，右键合成（Ctrl+E）   </p>
+<h3 id="切图方式——切片切图"><a href="#切图方式——切片切图" class="headerlink" title="切图方式——切片切图"></a>切图方式——切片切图</h3><p>1.利用切片选中图片<br>2.导出选中的图片：<br>文件菜单→导出→存储为web设备所用格式→选择我们要的图片格式→存储   </p>
+<h3 id="切图方式——PS插件切图"><a href="#切图方式——PS插件切图" class="headerlink" title="切图方式——PS插件切图"></a>切图方式——PS插件切图</h3><p><strong>Cutterman</strong>是一款运行在Photoshop中的插件，能够自动将你需要的图层进行输出，以代替传统的“导出为web所用格式”以及切片工具进行挨个切图的繁琐流程   </p>
+<h2 id="CSS属性书写顺序"><a href="#CSS属性书写顺序" class="headerlink" title="CSS属性书写顺序"></a>CSS属性书写顺序</h2><p>1.布局定位属性：display/position/float/clear/visibility/overflow（建议display第一个写，毕竟关系到模式）<br>2.自身属性：width/height/margin/padding/border/background<br>3.文本属性：color/font/text-decoration/text-align/vetical-align/white-space/break-word<br>4.其他属性（CSS3）：content/cursor/border-radius/box-shadow/text-shadow/background:linear-gradient…<br><img src="https://s1.ax1x.com/2020/05/09/YlYQ8x.png" alt="YlYQ8x.png" border="0" /><br>图片有点儿错误…   </p>
+<h2 id="页面布局整体思路"><a href="#页面布局整体思路" class="headerlink" title="页面布局整体思路"></a>页面布局整体思路</h2><ol>
+<li>确定页面版心（可视区）  </li>
+<li>分析页面中的行模块，以及每个行模块中的列模块，页面布局第一准则  </li>
+<li>一行中的列模块经常浮动布局，先确定每个列的大小，之后确定列的位置，页面布局第二准则  </li>
+<li>制作HTML结构，遵循先有结构，后有样式的原则，结构永远最重要   </li>
+<li>理清布局结构，再写代码   </li>
+</ol>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><h3 id="定位的作用"><a href="#定位的作用" class="headerlink" title="定位的作用"></a>定位的作用</h3><p>1.让盒子自由的在某个盒子内移动位置<br>2.固定在屏幕中某个位置，并且可以压住其他盒子    </p>
+<h3 id="定位组成"><a href="#定位组成" class="headerlink" title="定位组成"></a>定位组成</h3><p>定位 = 定位模式 + 边偏移<br>1.定位模式决定元素的定位方式，通过CSS的position属性来设置  </p>
+<table>
+    <tr>
+        <th>值</th>
+        <th>语义</th>
+    </tr>
+    <tr>
+        <td>static</td>
+        <td>静态定位</td>
+    </tr>
+    <tr>
+        <td>relative</td>
+        <td>相对定位</td>
+    </tr>
+    <tr>
+        <td>absolute</td>
+        <td>绝对定位</td>
+    </tr>
+    <tr>
+        <td>fixed</td>
+        <td>固定定位</td>
+    </tr>
+</table>
+
+<p>2.边偏移<br>边偏移就是定位的盒子移动到的最终位置   </p>
+<table>
+    <tr>
+        <th>属性</th>
+        <th>示例</th>
+        <th>示例</th>
+    </tr>
+    <tr>
+        <td>top</td>
+        <td>top: 80px</td>
+        <td>顶端偏移量，定义元素相对于其父元素上边线的距离</td>
+    </tr>
+    <tr>
+        <td>bottom</td>
+        <td>bottom: 80px</td>
+        <td>底端偏移量，定义元素相对于其父元素下边线的距离</td>
+    </tr>
+    <tr>
+        <td>left</td>
+        <td>left: 80px</td>
+        <td>左侧偏移量，定义元素相对于其父元素左边线的距离</td>
+    </tr>
+    <tr>
+        <td>right</td>
+        <td>right: 80px</td>
+        <td>右侧偏移量，定义元素相对于其父元素右边线的距离</td>
+    </tr>
+</table>
+
+<h3 id="静态定位-static（了解）"><a href="#静态定位-static（了解）" class="headerlink" title="静态定位 static（了解）"></a>静态定位 static（了解）</h3><p>静态定位是元素的默认定位方式，无定位的意思   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    position: static;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="相对定位-relative（重要）"><a href="#相对定位-relative（重要）" class="headerlink" title="相对定位 relative（重要）"></a>相对定位 relative（重要）</h3><p><strong>相对定位</strong>是元素在移动位置的时候，是相对它<strong>原来的位置</strong>来说的   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>特点：<br>1.它是相对原来的位置来移动的，即移动位置的时候参照原来的位置<br>2.<strong>原来</strong>在标准流的<strong>位置</strong>继续占有，后面的盒子仍然以标准流的方式对待它（不脱标，继续保留原来的位置）<br>典型应用：限制绝对定位   </p>
+<h3 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h3><p><strong>绝对定位</strong>是元素在移动位置的时候，是相对于他的祖先元素来说的  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>特点：<br>1.如果<strong>没有祖先元素</strong>或者<strong>祖先元素没有定位</strong>，则以浏览器为准定位（Document文档）<br>2.如果祖先元素有定位（相对、绝对、固定定位），则以最近一级的有定位的祖先元素为参考点移动位置<br>3.绝对定位不占有原来的位置（脱标）   </p>
+<h3 id="讨论——子绝父相的由来"><a href="#讨论——子绝父相的由来" class="headerlink" title="讨论——子绝父相的由来"></a>讨论——子绝父相的由来</h3><p>①子级绝对定位，不会占有位置，可以放到父盒子里面的任何一个地方，不会影响其他的兄弟盒子<br>②父盒子需要加定位限制子盒子再父盒子内显示<br>③父盒子布局时，需要占有位置，因此父盒子只能是相对定位<br>当然，子绝父相不是永远不变的，如果父元素不需要占有位置，子绝父绝也会遇到   </p>
+<h3 id="固定定位-fixed（重要）"><a href="#固定定位-fixed（重要）" class="headerlink" title="固定定位 fixed（重要）"></a>固定定位 fixed（重要）</h3><p>固定定位是元素固定于浏览器可视区的位置。<br>主要使用场景：可以在浏览器页面滚动时元素的位置不会改变。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>特点：<br>1.位置是以浏览器的可视窗口为参照移动元素的  </p>
+<ul>
+<li>跟父元素没有任何关系   </li>
+<li>不随滚动条的滚动而滚动   </li>
+</ul>
+<p>2.固定定位不占有原来的位置<br>固定定位也是脱标的，其实固定定位也可以看做是一种特殊的绝对定位   </p>
+<p><strong>小技巧（涉及算法）</strong><br>固定定位：固定在版心右侧位置<br>小算法：<br>1.让固定定位的盒子<code>left: 50%;</code>走到浏览器可视区（也可以看做版心）的一半位置<br>2.让固定定位的盒子<code>margin-left: 400px</code>，多走版心宽度的一半位置<br>OK   </p>
+<h3 id="粘性定位-sticky（了解）"><a href="#粘性定位-sticky（了解）" class="headerlink" title="粘性定位 sticky（了解）"></a>粘性定位 sticky（了解）</h3><p>粘性定位可以被认为是相对定位和固定定位的混合。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    position: sticky;</span><br><span class="line">    top: 10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>特点：<br>1.以浏览器的可视窗口为参照点移动元素（固定定位的特点）<br>2.粘性定位占有原先的位置（相对定位特点）<br>3.必须添加top、left、fight、bottom其中一个才有效   </p>
+<h3 id="定位叠放次序-z-index"><a href="#定位叠放次序-z-index" class="headerlink" title="定位叠放次序 z-index"></a>定位叠放次序 z-index</h3><p>在使用定位布局时，可能会出现盒子冲的的情况。此时可以控制z-index来控制盒子的前后次序（z轴）   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    z-index: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数值可以是整数（无单位），默认是auto，数值越大，盒子越考上   </li>
+<li>如果属性值相同，则按照书写顺序，后来者居上   </li>
+<li>只有定位的盒子才有z-index属性   </li>
+</ul>
+<h3 id="定位的拓展"><a href="#定位的拓展" class="headerlink" title="定位的拓展"></a>定位的拓展</h3><p><strong>1.绝对定位的盒子居中</strong><br>加了绝对定位的盒子不能通过<code>margin: 0 auto;</code>水平居中，但是可以这样：   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 50%;</span><br><span class="line">    margin-left: -50px;</span><br><span class="line">    top: 50%;</span><br><span class="line">    margin-top: 50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先走页面的一半，再回走自身盒子的一半<br>固定定位也可以通过相同的方法实现   </p>
+<p><strong>2.定位的特殊性</strong><br>绝对定位和固定定位也和浮动类似<br>①行内元素添加绝对或者固定定位，可以直接设置高度和宽度<br>②块级元素添加绝对或者固定定位，如果不给宽度或者高度，默认大小是内容的大小   </p>
+<p><strong>3.脱标的盒子不会触发外边距塌陷</strong>   </p>
+<p><strong>4.绝对定位（固定定位）会完全压住盒子</strong><br>浮动元素不同，只会压住它下面标准流的盒子，但是不会压住下面标准流盒子里面的文字（图片）<br>但是聚堆定位（固定定位）会压住下面标准流的所有内容<br>浮动之所以不会压住文字，因为浮动产生的目的最初是为了做文字环绕效果的。文字会围绕浮动元素   </p>
+<h3 id="元素的显示与隐藏"><a href="#元素的显示与隐藏" class="headerlink" title="元素的显示与隐藏"></a>元素的显示与隐藏</h3><p>让一个元素在页面中显示或者显示出来   </p>
+<h4 id="display属性"><a href="#display属性" class="headerlink" title="display属性"></a>display属性</h4><p>display：属性用于设置一个元素如何显示<br><code>display: none;</code>：隐藏对象<br><code>display: block;</code>：显示对象<br>display隐藏元素后，不再占有原来的位置<br><strong>应用很广泛！</strong>   </p>
+<h4 id="visibility-可见性"><a href="#visibility-可见性" class="headerlink" title="visibility 可见性"></a>visibility 可见性</h4><table>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>inherit</td>
+        <td>继承上一个父对象的可见性</td>
+    </tr>
+    <tr>
+        <td>visible</td>
+        <td>对象可视</td>
+    </tr>
+    <tr>
+        <td>hidden</td>
+        <td>对象隐藏</td>
+    </tr>
+    <tr>
+        <td>collapse</td>
+        <td>主要用来隐藏表格的行或列。隐藏的行或列能够被其他内容使用。</td>
+    </tr>
+</table>
+visibility隐藏元素后，继续占有原来的位置   
+
+<h3 id="overflow-溢出"><a href="#overflow-溢出" class="headerlink" title="overflow 溢出"></a>overflow 溢出</h3><p>让一个元素在页面中隐藏或显示出来   </p>
+<table>
+    <tr>
+        <th>参数</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>visible</td>
+        <td>默认显示</td>
+    </tr>
+    <tr>
+        <td>hidden</td>
+        <td>不显示超过对象尺寸的内容，超出部分被隐藏</td>
+    </tr>
+    <tr>
+        <td>auto</td>
+        <td>超出自动显示滚动条，不超出不显示滚动条</td>
+    </tr>
+    <tr>
+        <td>scroll</td>
+        <td>不管超出与否，总是显示滚动条</td>
+    </tr>
+</table>
+一般情况下，都不会让溢出内容显示出来，因为溢出的部分会影响布局   
+但如果有定位的盒子，请慎用overflow: hidden,因为它会隐藏多余的部分   
       
 
       
@@ -470,7 +855,7 @@ rel：定义当前文档与被链接文档之间的关系，在这里需要指�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-——-网页的美容师"><span class="toc-number">1.</span> <span class="toc-text">CSS —— 网页的美容师</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS语法规范"><span class="toc-number">1.1.</span> <span class="toc-text">CSS语法规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS代码风格"><span class="toc-number">1.2.</span> <span class="toc-text">CSS代码风格</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-样式格式"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">1.样式格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-样式大小写"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2.样式大小写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-空格规范"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">3.空格规范</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS基础选择器"><span class="toc-number">1.3.</span> <span class="toc-text">CSS基础选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#标签选择器"><span class="toc-number">1.3.1.</span> <span class="toc-text">标签选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类选择器"><span class="toc-number">1.3.2.</span> <span class="toc-text">类选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#id选择器"><span class="toc-number">1.3.3.</span> <span class="toc-text">id选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通配符选择器"><span class="toc-number">1.3.4.</span> <span class="toc-text">通配符选择器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS字体属性"><span class="toc-number">1.4.</span> <span class="toc-text">CSS字体属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-字体系列"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.字体系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-字体大小"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.字体大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-字体粗细"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.字体粗细</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-文字样式"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.文字样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-字体复合属性"><span class="toc-number">1.4.5.</span> <span class="toc-text">5.字体复合属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS文本属性"><span class="toc-number">1.5.</span> <span class="toc-text">CSS文本属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文本颜色"><span class="toc-number">1.5.1.</span> <span class="toc-text">文本颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对齐文本"><span class="toc-number">1.5.2.</span> <span class="toc-text">对齐文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰文本"><span class="toc-number">1.5.3.</span> <span class="toc-text">装饰文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本缩进"><span class="toc-number">1.5.4.</span> <span class="toc-text">文本缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行间距"><span class="toc-number">1.5.5.</span> <span class="toc-text">行间距</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS引入方式"><span class="toc-number">1.6.</span> <span class="toc-text">CSS引入方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内部样式表"><span class="toc-number">1.6.1.</span> <span class="toc-text">内部样式表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行内样式表"><span class="toc-number">1.6.2.</span> <span class="toc-text">行内样式表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外部样式表（最常用）"><span class="toc-number">1.6.3.</span> <span class="toc-text">外部样式表（最常用）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chrome调试工具"><span class="toc-number">1.7.</span> <span class="toc-text">Chrome调试工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-打开调试工具"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.打开调试工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用调试工具"><span class="toc-number">1.7.2.</span> <span class="toc-text">2.使用调试工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emmet语法"><span class="toc-number">1.8.</span> <span class="toc-text">Emmet语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-快速生成HTML结构"><span class="toc-number">1.8.1.</span> <span class="toc-text">1.快速生成HTML结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-快速生成CSS样式"><span class="toc-number">1.8.2.</span> <span class="toc-text">2.快速生成CSS样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-快速格式化代码"><span class="toc-number">1.8.3.</span> <span class="toc-text">3.快速格式化代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合选择器"><span class="toc-number">1.9.</span> <span class="toc-text">复合选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#后代选择器（重要）"><span class="toc-number">1.9.1.</span> <span class="toc-text">后代选择器（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子选择器（重要）"><span class="toc-number">1.9.2.</span> <span class="toc-text">子选择器（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并集选择器（重要）"><span class="toc-number">1.9.3.</span> <span class="toc-text">并集选择器（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#伪类选择器"><span class="toc-number">1.9.4.</span> <span class="toc-text">伪类选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#链接伪类选择器"><span class="toc-number">1.9.4.1.</span> <span class="toc-text">链接伪类选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#focus-伪类选择器"><span class="toc-number">1.9.4.2.</span> <span class="toc-text">:focus 伪类选择器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS元素显示模式"><span class="toc-number">1.10.</span> <span class="toc-text">CSS元素显示模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#块元素"><span class="toc-number">1.10.0.1.</span> <span class="toc-text">块元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行内元素"><span class="toc-number">1.10.0.2.</span> <span class="toc-text">行内元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行内块元素"><span class="toc-number">1.10.0.3.</span> <span class="toc-text">行内块元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元素显示模式转换"><span class="toc-number">1.10.1.</span> <span class="toc-text">元素显示模式转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#snipaste-amp-小米侧边栏练习"><span class="toc-number">1.10.2.</span> <span class="toc-text">snipaste &amp; 小米侧边栏练习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS背景"><span class="toc-number">1.11.</span> <span class="toc-text">CSS背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景颜色"><span class="toc-number">1.11.1.</span> <span class="toc-text">背景颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景图片"><span class="toc-number">1.11.2.</span> <span class="toc-text">背景图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景平铺"><span class="toc-number">1.11.3.</span> <span class="toc-text">背景平铺</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-——-网页的美容师"><span class="toc-number">1.</span> <span class="toc-text">CSS —— 网页的美容师</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS语法规范"><span class="toc-number">1.1.</span> <span class="toc-text">CSS语法规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS代码风格"><span class="toc-number">1.2.</span> <span class="toc-text">CSS代码风格</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-样式格式"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">1.样式格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-样式大小写"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2.样式大小写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-空格规范"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">3.空格规范</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS基础选择器"><span class="toc-number">1.3.</span> <span class="toc-text">CSS基础选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#标签选择器"><span class="toc-number">1.3.1.</span> <span class="toc-text">标签选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类选择器"><span class="toc-number">1.3.2.</span> <span class="toc-text">类选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#id选择器"><span class="toc-number">1.3.3.</span> <span class="toc-text">id选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通配符选择器"><span class="toc-number">1.3.4.</span> <span class="toc-text">通配符选择器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS字体属性"><span class="toc-number">1.4.</span> <span class="toc-text">CSS字体属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-字体系列"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.字体系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-字体大小"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.字体大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-字体粗细"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.字体粗细</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-文字样式"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.文字样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-字体复合属性"><span class="toc-number">1.4.5.</span> <span class="toc-text">5.字体复合属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS文本属性"><span class="toc-number">1.5.</span> <span class="toc-text">CSS文本属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文本颜色"><span class="toc-number">1.5.1.</span> <span class="toc-text">文本颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对齐文本"><span class="toc-number">1.5.2.</span> <span class="toc-text">对齐文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰文本"><span class="toc-number">1.5.3.</span> <span class="toc-text">装饰文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本缩进"><span class="toc-number">1.5.4.</span> <span class="toc-text">文本缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行间距"><span class="toc-number">1.5.5.</span> <span class="toc-text">行间距</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS引入方式"><span class="toc-number">1.6.</span> <span class="toc-text">CSS引入方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内部样式表"><span class="toc-number">1.6.1.</span> <span class="toc-text">内部样式表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行内样式表"><span class="toc-number">1.6.2.</span> <span class="toc-text">行内样式表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外部样式表（最常用）"><span class="toc-number">1.6.3.</span> <span class="toc-text">外部样式表（最常用）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chrome调试工具"><span class="toc-number">1.7.</span> <span class="toc-text">Chrome调试工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-打开调试工具"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.打开调试工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用调试工具"><span class="toc-number">1.7.2.</span> <span class="toc-text">2.使用调试工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emmet语法"><span class="toc-number">1.8.</span> <span class="toc-text">Emmet语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-快速生成HTML结构"><span class="toc-number">1.8.1.</span> <span class="toc-text">1.快速生成HTML结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-快速生成CSS样式"><span class="toc-number">1.8.2.</span> <span class="toc-text">2.快速生成CSS样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-快速格式化代码"><span class="toc-number">1.8.3.</span> <span class="toc-text">3.快速格式化代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合选择器"><span class="toc-number">1.9.</span> <span class="toc-text">复合选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#后代选择器（重要）"><span class="toc-number">1.9.1.</span> <span class="toc-text">后代选择器（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子选择器（重要）"><span class="toc-number">1.9.2.</span> <span class="toc-text">子选择器（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并集选择器（重要）"><span class="toc-number">1.9.3.</span> <span class="toc-text">并集选择器（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#伪类选择器"><span class="toc-number">1.9.4.</span> <span class="toc-text">伪类选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#链接伪类选择器"><span class="toc-number">1.9.4.1.</span> <span class="toc-text">链接伪类选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#focus-伪类选择器"><span class="toc-number">1.9.4.2.</span> <span class="toc-text">:focus 伪类选择器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS元素显示模式"><span class="toc-number">1.10.</span> <span class="toc-text">CSS元素显示模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#块元素"><span class="toc-number">1.10.0.1.</span> <span class="toc-text">块元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行内元素"><span class="toc-number">1.10.0.2.</span> <span class="toc-text">行内元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行内块元素"><span class="toc-number">1.10.0.3.</span> <span class="toc-text">行内块元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元素显示模式转换"><span class="toc-number">1.10.1.</span> <span class="toc-text">元素显示模式转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#snipaste-amp-小米侧边栏练习"><span class="toc-number">1.10.2.</span> <span class="toc-text">snipaste &amp; 小米侧边栏练习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS背景"><span class="toc-number">1.11.</span> <span class="toc-text">CSS背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景颜色"><span class="toc-number">1.11.1.</span> <span class="toc-text">背景颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景图片"><span class="toc-number">1.11.2.</span> <span class="toc-text">背景图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景平铺"><span class="toc-number">1.11.3.</span> <span class="toc-text">背景平铺</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景图片的位置（重要）"><span class="toc-number">1.11.4.</span> <span class="toc-text">背景图片的位置（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景图像固定（背景附着）"><span class="toc-number">1.11.5.</span> <span class="toc-text">背景图像固定（背景附着）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景复合写法"><span class="toc-number">1.11.6.</span> <span class="toc-text">背景复合写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景色半透明"><span class="toc-number">1.11.7.</span> <span class="toc-text">背景色半透明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS三大特性"><span class="toc-number">1.12.</span> <span class="toc-text">CSS三大特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#层叠性"><span class="toc-number">1.12.1.</span> <span class="toc-text">层叠性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承性"><span class="toc-number">1.12.2.</span> <span class="toc-text">继承性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优先级"><span class="toc-number">1.12.3.</span> <span class="toc-text">优先级</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS盒子模型"><span class="toc-number">1.13.</span> <span class="toc-text">CSS盒子模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#盒子模型"><span class="toc-number">1.13.1.</span> <span class="toc-text">盒子模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#盒子模型（Box-Model）组成"><span class="toc-number">1.13.2.</span> <span class="toc-text">盒子模型（Box Model）组成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#边框（Border）"><span class="toc-number">1.13.2.1.</span> <span class="toc-text">边框（Border）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表格的细线边框"><span class="toc-number">1.13.2.2.</span> <span class="toc-text">表格的细线边框</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内边距（padding）"><span class="toc-number">1.13.2.3.</span> <span class="toc-text">内边距（padding）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外边距（margin）"><span class="toc-number">1.13.2.4.</span> <span class="toc-text">外边距（margin）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#清除内外边距"><span class="toc-number">1.13.2.5.</span> <span class="toc-text">清除内外边距</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PS基本操作"><span class="toc-number">1.13.3.</span> <span class="toc-text">PS基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pink总结："><span class="toc-number">1.13.3.1.</span> <span class="toc-text">pink总结：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#圆角边框"><span class="toc-number">1.13.3.2.</span> <span class="toc-text">圆角边框</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#盒子阴影"><span class="toc-number">1.13.3.3.</span> <span class="toc-text">盒子阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文字阴影"><span class="toc-number">1.13.3.4.</span> <span class="toc-text">文字阴影</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮动"><span class="toc-number">1.14.</span> <span class="toc-text">浮动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传统网页的三种布局方式："><span class="toc-number">1.14.1.</span> <span class="toc-text">传统网页的三种布局方式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准流（普通流-文档流）"><span class="toc-number">1.14.2.</span> <span class="toc-text">标准流（普通流&#x2F;文档流）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮动的作用"><span class="toc-number">1.14.3.</span> <span class="toc-text">浮动的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮动-1"><span class="toc-number">1.14.4.</span> <span class="toc-text">浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮动特性（重点）"><span class="toc-number">1.14.5.</span> <span class="toc-text">浮动特性（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮动元素经常和标准流父级搭配使用"><span class="toc-number">1.14.6.</span> <span class="toc-text">浮动元素经常和标准流父级搭配使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见网页布局"><span class="toc-number">1.14.7.</span> <span class="toc-text">常见网页布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮动布局注意点"><span class="toc-number">1.14.8.</span> <span class="toc-text">浮动布局注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清除浮动"><span class="toc-number">1.14.9.</span> <span class="toc-text">清除浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清除浮动的方法"><span class="toc-number">1.14.10.</span> <span class="toc-text">清除浮动的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PS切图"><span class="toc-number">1.15.</span> <span class="toc-text">PS切图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见图片格式"><span class="toc-number">1.15.1.</span> <span class="toc-text">常见图片格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切图方式——图层切图"><span class="toc-number">1.15.2.</span> <span class="toc-text">切图方式——图层切图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切图方式——切片切图"><span class="toc-number">1.15.3.</span> <span class="toc-text">切图方式——切片切图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切图方式——PS插件切图"><span class="toc-number">1.15.4.</span> <span class="toc-text">切图方式——PS插件切图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS属性书写顺序"><span class="toc-number">1.16.</span> <span class="toc-text">CSS属性书写顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面布局整体思路"><span class="toc-number">1.17.</span> <span class="toc-text">页面布局整体思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定位"><span class="toc-number">1.18.</span> <span class="toc-text">定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定位的作用"><span class="toc-number">1.18.1.</span> <span class="toc-text">定位的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定位组成"><span class="toc-number">1.18.2.</span> <span class="toc-text">定位组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态定位-static（了解）"><span class="toc-number">1.18.3.</span> <span class="toc-text">静态定位 static（了解）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相对定位-relative（重要）"><span class="toc-number">1.18.4.</span> <span class="toc-text">相对定位 relative（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对定位"><span class="toc-number">1.18.5.</span> <span class="toc-text">绝对定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论——子绝父相的由来"><span class="toc-number">1.18.6.</span> <span class="toc-text">讨论——子绝父相的由来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#固定定位-fixed（重要）"><span class="toc-number">1.18.7.</span> <span class="toc-text">固定定位 fixed（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#粘性定位-sticky（了解）"><span class="toc-number">1.18.8.</span> <span class="toc-text">粘性定位 sticky（了解）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定位叠放次序-z-index"><span class="toc-number">1.18.9.</span> <span class="toc-text">定位叠放次序 z-index</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定位的拓展"><span class="toc-number">1.18.10.</span> <span class="toc-text">定位的拓展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元素的显示与隐藏"><span class="toc-number">1.18.11.</span> <span class="toc-text">元素的显示与隐藏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#display属性"><span class="toc-number">1.18.11.1.</span> <span class="toc-text">display属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#visibility-可见性"><span class="toc-number">1.18.11.2.</span> <span class="toc-text">visibility 可见性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#overflow-溢出"><span class="toc-number">1.18.12.</span> <span class="toc-text">overflow 溢出</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
